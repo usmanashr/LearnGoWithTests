@@ -7,10 +7,13 @@ import (
 
 func TestHello(t *testing.T) {
 
-	got := Hello("Chrgo tesis")
-	want := "Hello World"
+	t.Run("saying hello to people", func(t *testing.T) {
+		inputString := "Chrgo tesis"
+		got := Hello(inputString)
 
-	if got != want {
-		log.Fatalln("error occured")
-	}
+		if got != inputString {
+			log.Fatalln("error occured")
+		}
+	})
+
 }
