@@ -11,11 +11,20 @@ func TestHello(t *testing.T) {
 		got := Hello(inputString)
 
 		want := "Hello Usman"
-
-		if got != want {
-			t.Errorf("error occured %q %q", got, inputString)
-		}
+		assertCorrectMessage(t, got, want)
 
 	})
+	t.Run("print hello world when input string is empty", func(t *testing.T) {
+		got := Hello("")
+		want := "Hello World"
+		assertCorrectMessage(t, got, want)
+	})
 
+}
+
+func assertCorrectMessage(t testing.TB, got string, want string) {
+	t.Helper()
+	if got != want {
+		t.Errorf("error occured %q %q", got, want)
+	}
 }
