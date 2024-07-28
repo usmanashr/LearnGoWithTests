@@ -1,19 +1,21 @@
 package main
 
 import (
-	"log"
 	"testing"
 )
 
 func TestHello(t *testing.T) {
 
 	t.Run("saying hello to people", func(t *testing.T) {
-		inputString := "Chrgo tesis"
+		inputString := "Usman"
 		got := Hello(inputString)
 
-		if got != inputString {
-			log.Fatalln("error occured")
+		want := "Hello Usman"
+
+		if got != want {
+			t.Errorf("error occured %q %q", got, inputString)
 		}
+
 	})
 
 }
